@@ -4,6 +4,8 @@ public abstract class CurrencyConverter extends UnitConverter {
 
 class DollarToEuroConverter extends UnitConverter
 {
+  double  in;
+  double  out;
   public DollarToEuroConverter() { }
 
   public double convert(double inDollars) {
@@ -21,10 +23,15 @@ class DollarToEuroConverter extends UnitConverter
   public void print(){
     System.out.println(toString());
   }
+  public void putValues(String value) {
+    in = Double.parseDouble(value);
+   out = convert(in);
+  }
 }
 
 class EuroToDollarConverter extends CurrencyConverter { 
-	  
+	double  in;
+  	double  out;  
 	public EuroToDollarConverter() { }
 	  
 	public double convert(double inEuros) 
@@ -43,4 +50,8 @@ class EuroToDollarConverter extends CurrencyConverter {
      public void print(){
 	    System.out.println(toString());
      }
+     public void putValues(String value) {
+       in = Double.parseDouble(value);
+       out = convert(in);
+  }
 }
