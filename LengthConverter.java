@@ -1,11 +1,10 @@
 
 public abstract class LengthConverter extends UnitConverter{ 
-	  
-	  public LengthConverter() { }
-	  
-}
+  public LengthConverter() { }
+ }
 class MetersToKmConverter extends LengthConverter { 
-
+	double  in;
+  	double  out;
 	  public MetersToKmConverter() { }
 	  
 	  public double convert(double inMeters) {
@@ -23,10 +22,17 @@ class MetersToKmConverter extends LengthConverter {
     public void print(){
 	      System.out.println(toString());
     }
+	
+public void putValues(String value) {
+    in = Double.parseDouble(value);
+   out = convert(in);
+  }
 }
 	  
 class KmToMetersConverter extends LengthConverter { 
-		  
+	 
+	double  in;
+	 double  out;  	  
 	  public KmToMetersConverter(){ }
 	  
 	  public double convert(double inKiloMeters) {
@@ -44,5 +50,10 @@ class KmToMetersConverter extends LengthConverter {
     public void print(){
 	      System.out.println(toString());
     }
+	
+  public void putValues(String value) {
+	    in = Double.parseDouble(value);
+	   out = convert(in);
+  }
 		  
 }
