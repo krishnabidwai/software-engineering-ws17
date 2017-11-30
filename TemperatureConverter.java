@@ -3,26 +3,29 @@ public abstract class TemperatureConverter extends UnitConverter{
 }
 
  class CelsiusToFahrenheitConverter extends TemperatureConverter { 
-	  
-	   public CelsiusToFahrenheitConverter() { }
-		  public double convert(double inCelsius) {
+  double  in;
+  double  out;
+   public CelsiusToFahrenheitConverter() { }
+	  public double convert(double inCelsius) {
 
-			    return ((inCelsius*1.8)+32);
-			  }
+		    return ((inCelsius*1.8)+32);
+		  }
 
-			  public String toString(){
-			    return "Celsius To Fahrenheit Converter";
-			  }
+		  public String toString(){
+		    return "Celsius To Fahrenheit Converter";
+		  }
 
-			  public void print(){
-			    System.out.println(toString());
-			  }
-	  }
+		  public void print(){
+		    System.out.println(toString());
+		  }
+}
 	  
 class FahrenheitToCelsiusConverter extends TemperatureConverter { 
 	   
+	double  in;
+	double  out;
 	   public FahrenheitToCelsiusConverter() { }
-	   
+
 	   public double convert(double inFahrenheit) {
 		    return ((inFahrenheit-32)*0.55555);
 	   }
@@ -34,5 +37,5 @@ class FahrenheitToCelsiusConverter extends TemperatureConverter {
 	   public void print(){
 	    System.out.println(toString());
 	   }
-		  
+  
 }
