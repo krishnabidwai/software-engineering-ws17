@@ -1,39 +1,26 @@
-import java.lang.reflect.Method;
+import java.util.*;
+import java.util.Scanner;
 
 class Main {
   public static void main(String[] args) throws Exception
   {
-    String conversion = args[0];
-    String value = args[1];
-
-    /*
-     * TODO
-     *
-     * use desired conversion here
-     *
-    
-
-    UnitConverter myConverter = new DollarToEuroConverter();
-    double aLotOfDollars = 10000;
-    double aLotOfEuros = myConverter.convert(aLotOfDollars);
-    System.out.println(myConverter.toString() + " has converted " + aLotOfDollars + " USD to " + aLotOfEuros + " EUR!");
-	*/
-	
-	try{
-		
-	Class<?> cls = Class.forName(conversion);
- 	Object obj = cls.newInstance();
- 	
- 	// use Methods - putValues & print
- 	// method 'putValues' requires a string as a parameter
- 	Method m = cls.getDeclaredMethod("putValues", new Class[] {String.class});
- 	m.invoke(obj, value);
- 	m = cls.getDeclaredMethod("print");
- 	m.invoke(obj);
-	}catch(ClassNotFoundException cnfe){
-		
-		System.out.println("Wrong Class Name");
-	}
-   }
+	  String conversion;
+	  Double value;
+	  LinkedList<Command> commands = new LinkedList<Command>();
+	  
+	  System.out.println("Enter the pairs of a converter and a value: ");
+	  
+	  // get inputs
+	  Scanner scan = new Scanner(System.in);
+	  while(scan.hasNext()) {
+		  conversion = scan.next();
+		  value = scan.nextDouble();
+		  commands.add(new Command(conversion, value));
+	  }
+	  scan.close();
+	  
+	  // execute all commands
+	  for(Command command : commands)
+		  command.execute();
+  }
 }
-
