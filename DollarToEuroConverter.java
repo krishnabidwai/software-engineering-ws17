@@ -19,6 +19,15 @@ public class DollarToEuroConverter extends CurrencyConverter
 			System.exit(1);
 		}
 		
+		try {
+			if(base.outputStr.contains("-"))
+				throw new NegativeValueException("Incoming value should be Positive");
+		}
+		catch(NegativeValueException e) {
+			System.out.println(e);
+			System.exit(1);
+		}
+		
 		// extension
 		inputStr = base.inputStr;
 		outputStr = "Euro";
